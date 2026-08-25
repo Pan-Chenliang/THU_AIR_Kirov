@@ -30,13 +30,14 @@ importTNegative = importTPositive(:, end:-1:2, :);
 importTNegative(:, :, [2 4 6]) = -importTNegative(:, :, [2 4 6]);
 T = cat(2, importTNegative, importTPositive);
 
-importControlData = readmatrix(importFile, Sheet="舵效", Range="A1:G40");
+importControlData = readmatrix(importFile, Sheet="舵效", Range="A1:G49");
 
 ELEV_bp = importControlData(2:8, 1);    T_ELEV = importControlData(2:8, 2:7);
 LAILE_bp = importControlData(11:17, 1); T_LAILE = importControlData(11:17, 2:7);
 RAILE_bp = importControlData(20:26, 1); T_RAILE = importControlData(20:26, 2:7);
 RUDD_bp = importControlData(29:35, 1);  T_RUDD = importControlData(29:35, 2:7);
 FLAPS_bp = importControlData(38:40, 1); T_FLAPS = importControlData(38:40, 2:7);
+SPOILERS_bp = importControlData(43:49, 1); T_SPOILERS = importControlData(43:49, 2:7);
 
 % Dynamic derivatives and reference geometry.
 % Excel notation is preserved: Cma = C_m_alpha_dot, Cnb = C_n_beta_dot.
