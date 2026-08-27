@@ -18,10 +18,10 @@ M_aile = 0.15;
 M_elev = 0.15;
 M_rudd = 0.2;
 M_flap = 0.4;
-M_airbreak = 0.2;
+M_spoiler = 0.2;
 M_main_gear = 0.3;
 M_front_gear = 0.3;
 M_prop = 0.1;
 
-total_mass = M_body+M_load+2*M_aile+M_elev+M_rudd+2*M_flap+2*M_airbreak+2*M_main_gear+M_front_gear+2*M_prop; % kg
+total_mass = M_body+M_load+2*M_aile+M_elev+M_rudd+2*M_flap+2*M_spoiler+2*M_main_gear+M_front_gear+2*M_prop; % kg
 disp('Total mass = '+string(total_mass)+'kg');

@@ -1,0 +1,33 @@
+function generate_mavlink_buses()
+%GENERATE_MAVLINK_BUSES Create required MAVLink buses in base scope.
+%   A short-lived model without a data dictionary makes UAV Toolbox place
+%   the generated bus objects in the MATLAB base workspace.
+%
+%   This file is a function rather than a script so the onCleanup object is
+%   destroyed when the function returns. A unique model name also prevents
+%   collisions with a stale factory model from an interrupted earlier run.
+
+messageTypes = { ...
+    'HEARTBEAT', ...
+    'ATTITUDE', ...
+    'GLOBAL_POSITION_INT', ...
+    'MISSION_REQUEST_LIST', ...
+    'MISSION_REQUEST_INT', ...
+    'MISSION_COUNT', ...
+    'MISSION_ITEM_INT'};
+
+[~, uniqueSuffix] = fileparts(tempname);
+factoryModel = matlab.lang.makeValidName( ...
+    ['Kirov_MAVLink_Bus_Factory_' uniqueSuffix]);
+
+new_system(factoryModel);
+factoryCleanup = onCleanup(@() close_system(factoryModel, 0)); % #ok<NASGU>
+
+uav.sluav.internal.mavlink.util.PayloadParserUtil. ...
+    createMAVLinkParserInfo('common.xml', 2);
+
+for messageIndex = 1:numel(messageTypes)
+    uav.sluav.internal.mavlink.bus.Util. ...
+        createBusIfNeeded(messageTypes{messageIndex}, factoryModel);
+end
+end
