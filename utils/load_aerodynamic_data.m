@@ -8,7 +8,7 @@
 %   <surface>_bp : deflection breakpoint (deg)
 %   T_<surface>  : N-by-6, columns = [dFx dFy dFz dMx dMy dMz]
 
-importFile = fullfile(fileparts(mfilename("fullpath")), "data/气动汇总表.xlsx");
+importFile = fullfile(fileparts(mfilename("fullpath")), "../data/气动汇总表.xlsx");
 importData = readmatrix(importFile, Sheet="基本气动_体轴系", Range="B2:K84");
 
 alpha_bp = importData(1:13, 1).';
@@ -57,6 +57,20 @@ S   = importDynamicData(11);
 c   = importDynamicData(12);
 b   = importDynamicData(13);
 
+% Ground-effect model parameters.
+% Names match the labels in the "地效" worksheet.
+% Geometry, density, and speed are reused from the existing model signals.
+importGroundEffectData = readmatrix(importFile, Sheet="地效", Range="B2:B9");
+
+kInduced       = importGroundEffectData(1);
+minWingHeight  = importGroundEffectData(2);
+alphaFull      = importGroundEffectData(3);
+alphaOff       = importGroundEffectData(4);
+heightFadeStart = importGroundEffectData(5);
+heightOff      = importGroundEffectData(6);
+betaFull       = importGroundEffectData(7);
+betaOff        = importGroundEffectData(8);
+
 % Do not leave import-only variables in the workspace.
 clear importFile importData importControlData importDynamicData importBetaPositive ...
-    importTPositive importTNegative
+    importTPositive importTNegative importGroundEffectData
