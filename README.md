@@ -52,6 +52,6 @@ FlightGear 2024.1/
 ## Ardupilot 配置
 ```
 cd ~/ardupilot
-./Tools/autotest/sim_vehicle.py -v ArduPlane -f plane --model JSON:127.0.0.1 --no-wsl2-network -S 1 --custom-location="25.494443,-80.557063,1.96,0
+./Tools/autotest/sim_vehicle.py -v ArduPlane -f plane --model JSON:127.0.0.1 --no-wsl2-network -S 1 --custom-location="25.494443,-80.557063,1.96,0"
 ```
 可选 `-w` 清除配置。
