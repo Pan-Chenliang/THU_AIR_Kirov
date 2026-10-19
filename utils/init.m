@@ -7,6 +7,7 @@ load_inertia_data;
 generate_mavlink_buses;
 load('data/prop_lookup_clean.mat')
 load('data/battery_lookup_clean.mat')
+alarm = audioread('utils/alarm.wav');
 slblocks;
 
 % Battery model initial state: discharged capacity in mAh.
