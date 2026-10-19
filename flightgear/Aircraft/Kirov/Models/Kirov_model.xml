@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList>
+  <!-- Kirov: +X aft, +Y right, +Z up; generated from Kirov_aircraft.blend. -->
+  <defaults><axis-animation-vertex-order-xyz/></defaults>
+  <path>Kirov.ac</path>
+  <!-- The AC3D loader presents this export as a 90-degree left bank. -->
+  <offsets><roll-deg>-90</roll-deg></offsets>
+  <!-- FlightGear gear position is 1 down and 0 retracted. The offsets below
+       map the default down pose to 0 deg while preserving the Simscape-
+       derived retraction ranges. -->
+  <animation>
+    <type>rotate</type>
+    <object-name>FrontGear</object-name>
+    <object-name>NoseWheel</object-name>
+    <property>gear/gear[0]/position-norm</property>
+    <factor>100</factor>
+    <offset-deg>-100</offset-deg>
+    <min>0</min>
+    <max>100</max>
+    <axis>
+      <object-name>FrontGearRetract-axis</object-name>
+      <order-by-xyz/>
+    </axis>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>MainGearLeft</object-name>
+    <object-name>MainWheelLeft</object-name>
+    <property>gear/gear[1]/position-norm</property>
+    <factor>79</factor>
+    <offset-deg>-79</offset-deg>
+    <min>-79</min>
+    <max>0</max>
+    <axis>
+      <object-name>MainGearLeftRetract-axis</object-name>
+      <order-by-xyz/>
+    </axis>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>MainGearRight</object-name>
+    <object-name>MainWheelRight</object-name>
+    <property>gear/gear[2]/position-norm</property>
+    <factor>-79</factor>
+    <offset-deg>79</offset-deg>
+    <min>0</min>
+    <max>79</max>
+    <axis>
+      <object-name>MainGearRightRetract-axis</object-name>
+      <order-by-xyz/>
+    </axis>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>AileronLeft</object-name>
+    <property>surface-positions/left-aileron-pos-norm</property>
+    <factor>30</factor>
+    <axis>
+      <object-name>AileronLeft-axis</object-name>
+      <order-by-xyz/>
+    </axis>
+    <!-- Independent left aileron. -->
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>AileronRight</object-name>
+    <property>surface-positions/right-aileron-pos-norm</property>
+    <factor>-30</factor>
+    <axis>
+      <object-name>AileronRight-axis</object-name>
+      <order-by-xyz/>
+    </axis>
+    <!-- Independent right aileron. -->
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>FlapLeft</object-name>
+    <property>surface-positions/flap-pos-norm</property>
+    <factor>-35</factor>
+    <axis>
+      <object-name>FlapLeft-axis</object-name>
+      <order-by-xyz/>
+    </axis>
+    <!-- Left flap. -->
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>FlapRight</object-name>
+    <property>surface-positions/flap-pos-norm</property>
+    <factor>-35</factor>
+    <axis>
+      <object-name>FlapRight-axis</object-name>
+      <order-by-xyz/>
+    </axis>
+    <!-- Right flap. -->
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>AirbrakeLeft</object-name>
+    <property>surface-positions/spoilers-pos-norm</property>
+    <factor>60</factor>
+    <axis>
+      <object-name>AirbrakeLeft-axis</object-name>
+      <order-by-xyz/>
+    </axis>
+    <!-- Left airbrake. -->
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>AirbrakeRight</object-name>
+    <property>surface-positions/spoilers-pos-norm</property>
+    <factor>60</factor>
+    <axis>
+      <object-name>AirbrakeRight-axis</object-name>
+      <order-by-xyz/>
+    </axis>
+    <!-- Right airbrake. -->
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>Elevator</object-name>
+    <property>surface-positions/elevator-pos-norm</property>
+    <factor>-30</factor>
+    <axis>
+      <object-name>Elevator-axis</object-name>
+      <order-by-xyz/>
+    </axis>
+    <!-- Elevator. -->
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>Rudder</object-name>
+    <property>surface-positions/rudder-pos-norm</property>
+    <factor>-30</factor>
+    <axis>
+      <object-name>Rudder-axis</object-name>
+      <order-by-xyz/>
+    </axis>
+    <!-- Rudder. -->
+  </animation>
+  <animation>
+    <type>spin</type>
+    <object-name>PropellerLeft</object-name>
+    <property>engines/engine[0]/rpm</property>
+    <axis>
+      <object-name>PropellerLeft-axis</object-name>
+      <order-by-xyz/>
+    </axis>
+    <!-- Left propeller. -->
+  </animation>
+  <animation>
+    <type>spin</type>
+    <object-name>PropellerRight</object-name>
+    <property>engines/engine[1]/rpm</property>
+    <factor>-1</factor>
+    <axis>
+      <object-name>PropellerRight-axis</object-name>
+      <order-by-xyz/>
+    </axis>
+    <!-- Right propeller. -->
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>FrontGear</object-name>
+    <object-name>NoseWheel</object-name>
+    <property>gear/gear[0]/steering-norm</property>
+    <factor>30</factor>
+    <axis>
+      <object-name>NoseGearAssembly-axis</object-name>
+      <order-by-xyz/>
+    </axis>
+    <!-- Nose gear steering. -->
+  </animation>
+</PropertyList>

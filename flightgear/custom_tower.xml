@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList>
+  <nasal>
+    <custom_tower>
+      <script>
+        setlistener("/sim/signals/fdm-initialized", func {
+          # 1. Lock tower position and default view
+          setprop("/sim/tower/auto-position", 0);
+          setprop("/sim/tower/airport-id", "");
+          setprop("/sim/tower/latitude-deg", 25.49445302);
+          setprop("/sim/tower/longitude-deg", -80.55707364);
+          setprop("/sim/tower/altitude-ft", 12);
+          setprop("/sim/current-view/view-number", 5);
+
+          # 2. Coordinates for Waypoint 3 and Waypoint 4 (~100m apart)
+          var wp3_lat = 25.49490786;
+          var wp3_lon = -80.55684514;
+
+          var wp4_lat = 25.49400835;
+          var wp4_lon = -80.55684097;
+
+          # Get local ground elevation (meters)
+          var elev3 = geo.elevation(wp3_lat, wp3_lon);
+          if (elev3 == nil) { elev3 = getprop("/position/ground-elev-m"); }
+          if (elev3 == nil) { elev3 = 0; }
+
+          var elev4 = geo.elevation(wp4_lat, wp4_lon);
+          if (elev4 == nil) { elev4 = getprop("/position/ground-elev-m"); }
+          if (elev4 == nil) { elev4 = 0; }
+
+          # Place windsock/flag models directly on ground elevation at WP3 and WP4
+          geo.put_model("Models/Airport/windsock.xml", wp3_lat, wp3_lon, elev3);
+          geo.put_model("Models/Airport/windsock.xml", wp4_lat, wp4_lon, elev4);
+        });
+      </script>
+    </custom_tower>
+  </nasal>
+</PropertyList>

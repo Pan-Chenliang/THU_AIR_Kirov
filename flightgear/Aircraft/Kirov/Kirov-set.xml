@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Minimal external-FDM aircraft package.
+  Flight dynamics are supplied by Simulink through net_fdm UDP packets;
+  FlightGear must be launched with its null-FDM option.
+-->
+<PropertyList>
+  <sim>
+    <description>Kirov external-FDM visual aircraft</description>
+    <long-description>Kirov visual model driven by the Kirov Simulink flight-dynamics model over FlightGear native net_fdm UDP.</long-description>
+    <author>Kirov project</author>
+    <status>beta</status>
+    <minimum-fg-version>2024.1</minimum-fg-version>
+    <rating>
+      <FDM type="int">1</FDM>
+      <systems type="int">1</systems>
+      <model type="int">3</model>
+      <cockpit type="int">0</cockpit>
+    </rating>
+    <tags>
+      <tag>external-fdm</tag>
+      <tag>twin-prop</tag>
+    </tags>
+    <previews>
+      <preview>
+        <type>exterior</type>
+        <path>Previews/Kirov-thumbnail.png</path>
+        <splash type="bool">false</splash>
+      </preview>
+    </previews>
+    <!-- Relative to this aircraft package, so it also works via FG_AIRCRAFT. -->
+    <model>
+      <path>Models/Kirov_model.xml</path>
+    </model>
+    <sound>
+      <path archive="y">Kirov-sound.xml</path>
+    </sound>
+    <!-- External-only camera; no cockpit or panel is required. -->
+    <view n="0">
+      <name>External view</name>
+      <type>lookfrom</type>
+      <internal type="bool">false</internal>
+      <config>
+        <from-model type="bool">true</from-model>
+        <from-model-idx type="int">0</from-model-idx>
+        <default-field-of-view-deg type="double">60</default-field-of-view-deg>
+        <dynamic-view type="bool">true</dynamic-view>
+        <front-direction-deg type="double">0</front-direction-deg>
+        <left-direction-deg type="double">90</left-direction-deg>
+        <back-direction-deg type="double">180</back-direction-deg>
+        <right-direction-deg type="double">270</right-direction-deg>
+      </config>
+    </view>
+  </sim>
+</PropertyList>
