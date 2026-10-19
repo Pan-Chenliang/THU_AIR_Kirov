@@ -1,7 +1,14 @@
-# 启动仿真
+# Kirov Reporting!
+![Kirov](Kirov_pic.jpg)
+
+Hi！
+
+这里是 THU AIR 限时载运机组，我们将 2026 CUADC 的飞机仿真模型完全开源，供大家交流学习和体验飞行。如果遇到任何问题，请提交 Issue。
+
+## 启动仿真
 
 1. 准备一个 joystick 输入手柄（支持的遥控器、游戏手柄均可）。
-2. 打开 MATLAB，在 `仿真` 文件夹下启动 `Kirov_sim.prj`。
+2. 打开 MATLAB，在当前文件夹下启动 `Kirov_sim.prj`。
 3. 打开 `simulation/Kirov_physics.slx`，注意不要切换工作目录，运行仿真。
 4. （可选）运行 `runfg_train.bat`，启动 FlightGear 界面。
 5. （可选）运行 QGC，连接 UDP 14550 端口，获得实际航线。下载机上任务可显示参考旗杆位置。
@@ -46,8 +53,7 @@ FlightGear 2024.1/
 └── custom_tower.xml
 ```
 3. 可根据电脑性能适当调整 FlightGear 的渲染效果。
-4. 在英文输入模式下，按 `v` 切换视角到  Tower View，按 `x/X` 可以放大或缩小。
-5. 改涂装可以改 blender 文件，然后按照文件夹里面的指引导出模型。
+4. 在英文输入模式下，按 `v` 切换视角到 Tower View，按 `x/X` 可以放大或缩小视角。
 
 ## Ardupilot 配置
 ```
