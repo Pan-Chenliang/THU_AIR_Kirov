@@ -42,7 +42,7 @@ FlightGear 2024.1/
 │       └── Kirov/
 └── Download/
 ```
-2. `flightgear` 文件夹下的 `Aircraft` 文件夹复制合并到安装目录下的 `data/Aircraft` 文件夹中。将 `custom_tower.xml` 复制到安装根目录下。最终呈现为：
+2. 将 `flightgear` 文件夹下的 `Aircraft` 文件夹复制合并到安装目录下的 `data/Aircraft` 文件夹中。将 `custom_tower.xml` 复制到安装根目录下。最终呈现为：
 ```
 FlightGear 2024.1/
 ├── bin/
